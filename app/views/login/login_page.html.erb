@@ -1,0 +1,50 @@
+<div class="container-sm mt-3">
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <button class="nav-link active" id="nav-sign-in-tab" data-bs-toggle="tab" data-bs-target="#nav-sign-in" type="button" role="tab" aria-controls="nav-sign-in" aria-selected="true">Sign In</button>
+            <button class="nav-link" id="nav-sign-up-tab" data-bs-toggle="tab" data-bs-target="#nav-sign-up" type="button" role="tab" aria-controls="nav-sign-up" aria-selected="false">Sign Up</button>
+            <button class="nav-link" id="nav-reset-password-tab" data-bs-toggle="tab" data-bs-target="#nav-reset-password" type="button" role="tab" aria-controls="nav-reset-password" aria-selected="false">Reset Password</button>
+        </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-sign-in" role="tabpanel" aria-labelledby="nav-sign-in-tab" tabindex="0">
+            <form class="mt-3">
+                <div class="mb-3">
+                    <input type="email" placeholder="Email" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <input type="password" placeholder="Password" class="form-control">
+                </div>
+                 <button type="submit" class="btn btn-primary">Sign In</button>
+            </form>
+        </div>
+        <div class="tab-pane fade" id="nav-sign-up" role="tabpanel" aria-labelledby="nav-sign-up-tab" tabindex="0">
+            <form class="mt-3">
+                <div class="mb-3">
+                    <input type="text" placeholder="First Name" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <input type="text" placeholder="Last Name" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <input type="email" placeholder="Email" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <input type="password" placeholder="Password" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <input type="password" placeholder="Repeat Password" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+            </form>
+        </div>
+        <div class="tab-pane fade" id="nav-reset-password" role="tabpanel" aria-labelledby="nav-reset-password-tab" tabindex="0">
+            <form class="mt-3">
+                <div class="mb-3">
+                    <input type="email" class="form-control" placeholder="Email">
+                </div>
+                <button type="submit" class="btn btn-primary">Reset Password</button>
+            </form>
+        </div>
+    </div>
+</div>

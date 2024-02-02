@@ -13,6 +13,10 @@
         - Once your installation has supposedly completed, run `bundle install` to see if you really have everything.
     5. Run `rails s` to start the dev server.
 
+
+## Naming Conventions
+1. Please use snake_case
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
