@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+$primary: #0077b6;
+$secondary: #023e8a;
+$success: #ff9e00;
+$info: #0096c7;
+$warning: #ff5400;
+$danger: #ff6d00;
+$light: #00b4d8;
+$dark: #03045e;
+
+@import "bootstrap";

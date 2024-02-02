@@ -12,6 +12,8 @@ gem "stimulus-rails"
 gem "jbuilder"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "bootsnap", require: false
+gem "sass-rails"  # Allow ruby to interpret sass so we can easily change the app's color palette
+gem "bootstrap", '~> 5.3.2'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
