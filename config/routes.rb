@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'user/calendar'
+  user_root_path 'user/calendar'
   root 'login#login_page'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
