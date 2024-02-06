@@ -14,6 +14,7 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "bootsnap", require: false
 gem "sass-rails"  # Allow ruby to interpret sass so we can easily change the app's color palette
 gem "bootstrap", '~> 5.3.2' # Importing bootstrap means that it comes uncompiled, so we can change scss values
+gem "bcrypt", '~> 3.1.7'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
