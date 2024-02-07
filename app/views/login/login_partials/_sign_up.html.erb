@@ -1,1 +1,24 @@
-b
+<%= form_with model: @user, url: sign_up_path do |form| %>
+    <% if @user.errors.any? %>
+        <div class="alert alert-danger">
+            <% @user.errors.full.messages.each do |message| %>
+                <div><%= message %></div>
+            <% end %>
+        </div>
+    <% end %>
+
+
+    <%= form.label :first_name, "First Name: " %>
+    <%= form.text_field :first_name, class: "form-control mb-3" %>
+
+    <%= form.label :last_name, "Last Name: " %>
+    <%= form.text_field :last_name, class: "form-control mb-3" %>
+
+    <%= form.label :email, "Email: " %>
+    <%= form.text_field :email, class: "form-control mb-3" %>
+
+    <%= form.label :password, "Password: " %>
+    <%= form.password_field :password, class: "form-control mb-3" %>
+    
+    <%= form.submit "Sign Up", class:"btn btn-primary" %>
+<% end %>

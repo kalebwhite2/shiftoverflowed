@@ -1,9 +1,11 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <span class="container-fluid justify-content-end">
-        <%= link_to 'Full Schedule', '/user/calendar', class:"btn btn-outline-primary m-1" %>
-        <%= link_to 'Update Availability', '/user/calendar', class:"btn btn-outline-light m-1" %>
-        <%= link_to 'User Profile', '/user/calendar', class:"btn btn-outline-light m-1" %>
-        <%= link_to 'Log Out', '/', method: :delete, class:"btn btn-outline-warning m-1" %>
-
-    </span>
+<nav class="navbar navbar-expand-lg navbar-secondary bg-secondary sticky-top">
+    <div class="container-fluid">
+        <div class="fs-1 text-primary">shiftoverflowed</div>
+        <div class="d-flex">
+            <%= link_to 'Full Schedule', '/user/calendar', class:"btn btn-outline-primary m-1" %>
+            <%= link_to 'Update Availability', '/user/calendar', class:"btn btn-outline-light m-1" %>
+            <%= link_to 'User Profile', '/user/calendar', class:"btn btn-outline-light m-1" %>
+            <%= link_to 'Log Out', '/', method: :delete, class:"btn btn-outline-warning m-1" %>
+        </div>
+    </div>
 </nav>

@@ -1,1 +1,9 @@
-a
+<%= form_with model: @user, url: sign_in_path do |form| %>
+    <%= form.label :email, "Email: " %>
+    <%= form.text_field :email, class: "form-control mb-3" %>
+
+    <%= form.label :password, "Password: " %>
+    <%= form.text_field :password, class: "form-control mb-3" %>
+
+    <%= form.submit "Sign In", class:"btn btn-primary" %> 
+<% end %>

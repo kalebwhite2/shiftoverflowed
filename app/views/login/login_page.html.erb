@@ -1,17 +1,19 @@
 <div class="container-sm mt-3">
-    <nav>
+    <nav class="mb-3">
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
             <button class="nav-link active" id="nav-sign-in-tab" data-bs-toggle="tab" data-bs-target="#nav-sign-in" type="button" role="tab" aria-controls="nav-sign-in" aria-selected="true">Sign In</button>
             <button class="nav-link" id="nav-sign-up-tab" data-bs-toggle="tab" data-bs-target="#nav-sign-up" type="button" role="tab" aria-controls="nav-sign-up" aria-selected="false">Sign Up</button>
             <button class="nav-link" id="nav-reset-password-tab" data-bs-toggle="tab" data-bs-target="#nav-reset-password" type="button" role="tab" aria-controls="nav-reset-password" aria-selected="false">Reset Password</button>
         </div>
     </nav>
+    <!-- This uses bootstrap javascript, found here: https://getbootstrap.com/docs/5.3/components/navs-tabs/#javascript-behavior -->
     <div class="tab-content" id="nav-tabContent">
+        <!-- Each div renders one of the partials found at login/* -->
         <div class="tab-pane fade show active" id="nav-sign-in" role="tabpanel" aria-labelledby="nav-sign-in-tab" tabindex="0">
-            <%= render 'login/login_partials/sign_in' %>
+            <%= render 'login/login_partials/sign_in', user: @user %>
         </div>
         <div class="tab-pane fade" id="nav-sign-up" role="tabpanel" aria-labelledby="nav-sign-up-tab" tabindex="0">
-            <%= render 'login/login_partials/sign_up' %>
+            <%= render 'login/login_partials/sign_up', user: @user %>
         </div>
         <div class="tab-pane fade" id="nav-reset-password" role="tabpanel" aria-labelledby="nav-reset-password-tab" tabindex="0">
             <%= render 'login/login_partials/reset_password' %>
