@@ -1,6 +1,7 @@
 class LoginController < ApplicationController
   def login_page
     @user = User.new
+    @tab = 0 
   end
 
   def sign_up
@@ -8,6 +9,7 @@ class LoginController < ApplicationController
     if @user.save
       redirect_to user_calendar_path, notice: "Succesfully signed up!"
     else
+      @tab = 1 
       render :login_page
     end
   end
