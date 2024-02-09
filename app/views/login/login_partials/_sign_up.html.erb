@@ -12,6 +12,9 @@
 
     <%= form.label :password, "Password: " %>
     <%= form.password_field :password, class: "form-control mb-3" %>
-    
+
+    <%= form.label :password_confirmation, "Repeat Password: " %>
+    <%= form.password_field :password_confirmation, class: "form-control mb-3" %>
+
     <%= form.submit "Sign Up", class:"btn btn-primary" %>
 <% end %>

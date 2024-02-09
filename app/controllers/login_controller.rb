@@ -12,7 +12,7 @@ class LoginController < ApplicationController
       redirect_to user_calendar_path, notice: "Succesfully signed up!"
     else
       @tab = 1 
-      render :login_page
+      render :new
     end
   end
 
@@ -34,6 +34,6 @@ class LoginController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end
 end
