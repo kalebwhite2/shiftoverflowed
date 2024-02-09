@@ -1,5 +1,5 @@
 class LoginController < ApplicationController
-  def login_page
+  def new
     @user = User.new
     @tab = 0 
   end
@@ -17,6 +17,15 @@ class LoginController < ApplicationController
   end
 
   def sign_in
+    # Find the user by email
+    user = User.find_by(email: params[:email])
+    # Does a user with that email exist and is their password valid?
+    if user.present? && user.authenticate(params[:password])
+      session[:user_id] = user.id
+      redirect_to user_calendar_path, notice: "Logged in succesfully!"
+    else
+      flash[:alert] = "Invalid email or password"
+    end
   end
 
   def reset_password
