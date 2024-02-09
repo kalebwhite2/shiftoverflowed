@@ -7,6 +7,8 @@ class LoginController < ApplicationController
   def sign_up
     @user = User.new(user_params)
     if @user.save
+      # Session - cookies, but encrypted!
+      session[:user_id] = @user.id
       redirect_to user_calendar_path, notice: "Succesfully signed up!"
     else
       @tab = 1 

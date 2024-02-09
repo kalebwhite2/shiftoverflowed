@@ -1,6 +1,7 @@
 <div class="container-sm mt-3">
     <nav class="mb-3">
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <!-- The ruby tag <%= @tab == 0 ? 'active' : ''%> and the subsequent aria-selected value allows us to control which tab appears as selected on page load -->
             <button class="nav-link <%= @tab == 0 ? 'active' : ''%>" id="nav-sign-in-tab" data-bs-toggle="tab" data-bs-target="#nav-sign-in" type="button" role="tab" aria-controls="nav-sign-in" aria-selected="<%= @tab == 0 ? 'true' : 'false' %>">Sign In</button>
             <button class="nav-link <%= @tab == 1 ? 'active' : ''%>" id="nav-sign-up-tab" data-bs-toggle="tab" data-bs-target="#nav-sign-up" type="button" role="tab" aria-controls="nav-sign-up" aria-selected="<%= @tab == 1 ? 'true' : 'false' %>">Sign Up</button>
             <button class="nav-link <%= @tab == 2 ? 'active' : ''%>" id="nav-reset-password-tab" data-bs-toggle="tab" data-bs-target="#nav-reset-password" type="button" role="tab" aria-controls="nav-reset-password" aria-selected="<%= @tab == 2 ? 'true' : 'false' %>">Reset Password</button>

@@ -15,27 +15,5 @@
 
 
 ## Naming Conventions
-1. Please use snake_case
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Please use snake_case.
+2. Please follow or update the [dbdiagram](https://dbdiagram.io/d/shiftoverflowed-65c58cdcac844320aec7146c).
