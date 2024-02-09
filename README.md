@@ -11,9 +11,14 @@
         - If it doesn't install correctly, google is your best friend. 
         - If a particularly part of the install is taking suspiciously long, hitting CTRL+C will stop only that particular installation.
         - Once your installation has supposedly completed, run `bundle install` to see if you really have everything.
+            - You may need to open a new terminal for this command to be recognized, or use a different shell.
     5. Run `rails s` to start the dev server.
 
 
-## Naming Conventions
+## Conventions
 1. Please use snake_case.
-2. Please follow or update the [dbdiagram](https://dbdiagram.io/d/shiftoverflowed-65c58cdcac844320aec7146c).
+2. Please comment with the format '# My comment'
+    1. Start with '# '
+    2. Include your commnent, capitalized, with no period, unless there's multiple sentences.
+3. Leave as many comments on your code as possible!
+4. Please follow or update the [dbdiagram](https://dbdiagram.io/d/shiftoverflowed-65c58cdcac844320aec7146c).

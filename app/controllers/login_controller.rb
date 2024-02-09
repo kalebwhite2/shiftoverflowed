@@ -1,6 +1,7 @@
 class LoginController < ApplicationController
   def new
-    @user = User.new
+    check_user_signed_in
+    @user = User.new 
     @tab = 0 
   end
 
@@ -32,6 +33,9 @@ class LoginController < ApplicationController
   end
 
   def reset_password
+  end
+
+  def update_password
   end
 
   private

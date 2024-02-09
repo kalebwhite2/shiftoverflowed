@@ -12,8 +12,10 @@ Rails.application.routes.draw do
   post 'sign_up', to: "login#sign_up"
   post 'sign_in', to: "login#sign_in"
   post 'reset_password', to: "login#reset_password"
+  patch 'reset_password', to: "login#update_password"
 
   # Routes for user actions
+  post 'change_user_details', to: 'user#change_user_details'
   delete 'logout', to: "user#logout"
 
   # Routes for user navigations

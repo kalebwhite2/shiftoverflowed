@@ -4,12 +4,14 @@
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
-    <%= form_with model: @user, url: sign_up_path do |form| %>
+    <%= form_with url: change_user_details_path do |form| %>
         <%= render 'utilities/errors/new_user' %>
 
+        <%= form.label :first_name, "First name: "%>
         <%= form.text_field :first_name, value: @user.first_name, class: "form-control mb-3" %>
+
+        <%= form.label :last_name, "Last name: "%>
         <%= form.text_field :last_name, value: @user.last_name, class: "form-control mb-3" %>
-        <%= form.password_field :password, class: "form-control mb-3" %>
 
         <%= form.submit "switch deets", class:"btn btn-primary" %>
     <% end %>
