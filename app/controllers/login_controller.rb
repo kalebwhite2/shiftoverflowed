@@ -24,7 +24,10 @@ class LoginController < ApplicationController
       session[:user_id] = user.id
       redirect_to user_calendar_path, notice: "Logged in succesfully!"
     else
-      flash[:alert] = "Invalid email or password"
+      # Since we are redirecting and not rerendering the template, 
+      # the values of the form fields will not be saved. So we have 
+      # to return them as params. This will go to the url /?signup_email=params[:email]
+      redirect_to root_path(@user, signup_email: params[:email]), notice: "Incorrect email or password"
     end
   end
 

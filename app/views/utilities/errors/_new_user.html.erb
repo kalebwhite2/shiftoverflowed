@@ -1,4 +1,4 @@
-<% if @user.errors.any? %>
+<% if Current.user && @user.errors.any? %>
     <div class="alert alert-danger">
         <% @user.errors.full_messages.each do |message| %>
             <div><%= message %></div>

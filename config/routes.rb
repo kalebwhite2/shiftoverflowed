@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root 'login#new'
 
-  # Routes for login_page related form submission post methods 
+  # Routes for login_page related posts 
   post 'sign_up', to: "login#sign_up"
   post 'sign_in', to: "login#sign_in"
   post 'reset_password', to: "login#reset_password"
@@ -16,5 +16,8 @@ Rails.application.routes.draw do
   # Routes for user actions
   delete 'logout', to: "user#logout"
 
+  # Routes for user navigations
+  get 'user/profile'
   get 'user/calendar'
+
 end

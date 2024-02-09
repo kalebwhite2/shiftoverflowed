@@ -1,7 +1,13 @@
 class UserController < ApplicationController
   def calendar
-    if session[:user_id]
-      @user = User.find(session[:user_id])
+    if Current.user 
+      @user = User.find(Current.user.id)
+    end
+  end
+
+  def profile
+    if Current.user 
+      @user = User.find(Current.user.id)
     end
   end
 
