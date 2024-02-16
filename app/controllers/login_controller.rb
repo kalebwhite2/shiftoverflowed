@@ -33,9 +33,25 @@ class LoginController < ApplicationController
   end
 
   def reset_password
+    @user = User.find_by(email: params[:email])
+
+    if @user.present?
+      # Send email
+    else 
+      @tab = 2 
+      @user = User.new
+      flash.now[:alert] = "Email not found."
+      render :new 
+    end
   end
 
   def update_password
+  end
+
+  def switch_to_reset_password
+    @tab = 2
+    @user = User.new
+    render :new
   end
 
   private

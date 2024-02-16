@@ -1,5 +1,6 @@
 class UserController < ApplicationController
   before_action :require_user_signed_in
+  
   def calendar
     @user = User.find(Current.user.id)
   end

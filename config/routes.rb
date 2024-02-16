@@ -8,11 +8,12 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root 'login#new'
 
-  # Routes for login_page related posts 
+  # Routes for login_page related actions 
   post 'sign_up', to: "login#sign_up"
   post 'sign_in', to: "login#sign_in"
   post 'reset_password', to: "login#reset_password"
   patch 'reset_password', to: "login#update_password"
+  get 'switch_to_reset_password', to: "login#switch_to_reset_password"
 
   # Routes for user actions
   post 'change_user_details', to: 'user#change_user_details'

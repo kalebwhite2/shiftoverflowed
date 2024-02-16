@@ -18,7 +18,7 @@
             <%= render 'login/login_partials/sign_up', user: @user %>
         </div>
         <div class="tab-pane fade <%= 'show active' if @tab == 2%>" id="nav-reset-password" role="tabpanel" aria-labelledby="nav-reset-password-tab" tabindex="0">
-            <%= render 'login/login_partials/reset_password' %>
+            <%= render 'login/password_resets/reset_password', user: @user %>
         </div>
     </div>
 </div>

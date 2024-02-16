@@ -1,7 +1,10 @@
-<% if Current.user && @user.errors.any? %>
-    <div class="alert alert-danger">
-        <% @user.errors.full_messages.each do |message| %>
-            <div><%= message %></div>
-        <% end %>
-    </div>
+<% if !@user.nil? %>
+    <% if @user.errors.any? %>
+        <div class="alert alert-danger alert-dismissible fade show">
+            <% @user.errors.full_messages.each do |message| %>
+                <div><%= message %></div>
+            <% end %>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <% end %>
 <% end %>
