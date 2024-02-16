@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  calendar_day: MyString
+  has_shifts: false
+  start_time: 2024-02-15
+  end_time: 2024-02-15
+  shift: one
+
+two:
+  calendar_day: MyString
+  has_shifts: false
+  start_time: 2024-02-15
+  end_time: 2024-02-15
+  shift: two

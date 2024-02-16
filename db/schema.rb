@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_06_183438) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_16_043548) do
+  create_table "days", force: :cascade do |t|
+    t.string "calendar_day"
+    t.boolean "has_shifts"
+    t.date "start_time"
+    t.date "end_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "shifts", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.date "start_time"
+    t.string "shift_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_shifts_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "first_name", null: false
     t.string "last_name", null: false
@@ -20,4 +38,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_06_183438) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "shifts", "users"
 end

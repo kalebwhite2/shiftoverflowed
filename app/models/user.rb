@@ -8,6 +8,9 @@
 
 class User < ApplicationRecord
     has_secure_password
+
+    # Each user has_many shifts
+    has_many :shifts
     
     # Check email against regex. Breaking this down:
         # \A is start of string. [^\s] means any character except (^) whitespace (\s).
