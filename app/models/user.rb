@@ -9,8 +9,8 @@
 class User < ApplicationRecord
     has_secure_password
 
-    # Each user has_many shifts
-    has_many :shifts
+    # Each user has_one weekly_availability
+    has_one :weekly_availability
     
     # Check email against regex. Breaking this down:
         # \A is start of string. [^\s] means any character except (^) whitespace (\s).
@@ -21,4 +21,12 @@ class User < ApplicationRecord
     # Active record validations contains this simple validator to check uniqueness
     validates :email, uniqueness: true
     validates :first_name, :last_name, :email, presence: true
+end
+
+class Ula < User
+    
+end
+
+class Administrator < User
+    has_one :team
 end

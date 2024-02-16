@@ -6,6 +6,10 @@ class CreateDays < ActiveRecord::Migration[7.1]
       t.date :start_time
       t.date :end_time
 
+      # belongs_to either a weekly_availability or a weekly_schedule
+      t.references :weekly_availability, null:false, foreign_key:true
+      t.references :weekly_schedule, null:false, foreign_key:true
+
       t.timestamps
     end
   end
