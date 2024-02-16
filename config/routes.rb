@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   post 'sign_in', to: "login#sign_in"
   post 'reset_password', to: "login#reset_password"
   patch 'reset_password', to: "login#update_password"
-  get 'switch_to_reset_password', to: "login#switch_to_reset_password"
+  get 'reset_password', to: "login#reset_password"
 
   # Routes for user actions
   post 'change_user_details', to: 'user#change_user_details'

@@ -10,7 +10,8 @@ class LoginController < ApplicationController
     if @user.save
       # Session - cookies, but encrypted!
       session[:user_id] = @user.id
-      redirect_to user_calendar_path, notice: "Succesfully signed up!"
+      flash[:notice] = "Succesfully signed up!"
+      redirect_to user_calendar_path
     else
       @tab = 1 
       render :new
@@ -23,12 +24,14 @@ class LoginController < ApplicationController
     # Does a user with that email exist and is their password valid?
     if user.present? && user.authenticate(params[:password])
       session[:user_id] = user.id
+      flash[:notice] = "Logged in succesfully!"
       redirect_to user_calendar_path, notice: "Logged in succesfully!"
     else
       # Since we are redirecting and not rerendering the template, 
       # the values of the form fields will not be saved. So we have 
       # to return them as params. This will go to the url /?signup_email=params[:email]
-      redirect_to root_path(@user, signup_email: params[:email]), notice: "Incorrect email or password"
+      flash[:alert] = "Incorrect email or password"
+      redirect_to root_path(@user, signup_email: params[:email])
     end
   end
 
@@ -46,12 +49,6 @@ class LoginController < ApplicationController
   end
 
   def update_password
-  end
-
-  def switch_to_reset_password
-    @tab = 2
-    @user = User.new
-    render :new
   end
 
   private

@@ -1,7 +1,15 @@
 <!-- Display flash alerts, set using flash[:alert] -->
-<% flash.each do |type, msg| %>
+<% if flash[:alert] %>
+    <div class="alert alert-info alert-dismissible fade show m-3" role="alert">
+            <div><%= flash[:alert] %></div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% end %>
+
+<!-- Display flash notices, set using flash[:notice] -->
+<% if flash[:notice] %>
     <div class="alert alert-success alert-dismissible fade show m-3" role="alert">
-            <div><%= msg %></div>
+            <div><%= flash[:notice] %></div>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 <% end %>
