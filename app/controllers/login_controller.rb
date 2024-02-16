@@ -40,10 +40,15 @@ class LoginController < ApplicationController
 
     if @user.present?
       # Send email
+      # TODO
     else 
+      # Check to see if reset_password is called by the sign up page,
+      # and thus if params[:email] exists
+      if params[:email]
+        flash.now[:alert] = "Email not found."
+      end
       @tab = 2 
       @user = User.new
-      flash.now[:alert] = "Email not found."
       render :new 
     end
   end
