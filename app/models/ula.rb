@@ -1,0 +1,2 @@
+class Ula < User
+end

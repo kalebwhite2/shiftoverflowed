@@ -22,11 +22,3 @@ class User < ApplicationRecord
     validates :email, uniqueness: true
     validates :first_name, :last_name, :email, presence: true
 end
-
-class Ula < User
-    
-end
-
-class Administrator < User
-    has_one :team
-end

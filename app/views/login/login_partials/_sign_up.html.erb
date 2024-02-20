@@ -16,5 +16,8 @@
     <%= form.label :password_confirmation, "Repeat Password: " %>
     <%= form.password_field :password_confirmation, class: "form-control mb-3" %>
 
+    <%= form.label :invite_code, "Invite Code: " %>
+    <%= form.text_field :invite_code, class: "form-control mb-3" %>
+
     <%= form.submit "Sign Up", class:"btn btn-primary" %>
 <% end %>

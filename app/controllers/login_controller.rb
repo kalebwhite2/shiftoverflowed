@@ -6,7 +6,11 @@ class LoginController < ApplicationController
   end
 
   def sign_up
-    @user = User.new(user_params)
+    if params[:user][:invite_code] === 'super_secret_admin_code'
+      @user = SiteAdmin.new(user_params)
+    else
+      @user = User.new(user_params)
+    end
     if @user.save
       # Session - cookies, but encrypted!
       session[:user_id] = @user.id
@@ -25,7 +29,7 @@ class LoginController < ApplicationController
     if user.present? && user.authenticate(params[:password])
       session[:user_id] = user.id
       flash[:notice] = "Logged in succesfully!"
-      redirect_to user_calendar_path, notice: "Logged in succesfully!"
+      redirect_to user_calendar_path
     else
       # Since we are redirecting and not rerendering the template, 
       # the values of the form fields will not be saved. So we have 
@@ -59,6 +63,7 @@ class LoginController < ApplicationController
   private
 
   def user_params
+    # Grab the invite_code from the array
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end
 end
