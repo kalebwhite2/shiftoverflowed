@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   delete 'logout', to: "user#logout"
 
   # Routes for user navigations
-  get 'user/profile', to: "profile#index"
-  get 'user/calendar', to: "calendar#index"
+  get 'user/profile', to: "profile#profile"
+  get 'user/calendar', to: "calendar#calendar"
 
 end
