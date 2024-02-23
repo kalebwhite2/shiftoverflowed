@@ -1,23 +1,25 @@
 class LoginController < ApplicationController
   def new
     check_user_signed_in
-    @user = User.new 
-    @tab = 0 
+    create_local_user
   end
 
   def sign_up
+    # Use invite code to see if user is a part of a team or an admin
     if params[:user][:invite_code] === 'super_secret_admin_code'
       @user = SiteAdmin.new(user_params)
     else
       @user = User.new(user_params)
     end
+    
+    # Persist the user
     if @user.save
       # Session - cookies, but encrypted!
       session[:user_id] = @user.id
       flash[:notice] = "Succesfully signed up!"
       redirect_to user_calendar_path
     else
-      @tab = 1 
+      create_local_user(1, @user)
       render :new
     end
   end
@@ -31,11 +33,11 @@ class LoginController < ApplicationController
       flash[:notice] = "Logged in succesfully!"
       redirect_to user_calendar_path
     else
-      # Since we are redirecting and not rerendering the template, 
-      # the values of the form fields will not be saved. So we have 
-      # to return them as params. This will go to the url /?signup_email=params[:email]
+      # We keep the value of the inputted email by saving it as an instance variable
       flash[:alert] = "Incorrect email or password"
-      redirect_to root_path(@user, signup_email: params[:email])
+      @sign_up_email = params[:email]
+      create_local_user
+      render :new
     end
   end
 
@@ -51,8 +53,8 @@ class LoginController < ApplicationController
       if params[:email]
         flash.now[:alert] = "Email not found."
       end
-      @tab = 2 
-      @user = User.new
+
+      create_local_user(2)
       render :new 
     end
   end
@@ -65,5 +67,10 @@ class LoginController < ApplicationController
   def user_params
     # Grab the invite_code from the array
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+  end
+
+  def create_local_user(tab=0, user=User.new)
+    @user = user 
+    @tab = tab 
   end
 end

@@ -1,14 +1,6 @@
 class UserController < ApplicationController
   before_action :require_user_signed_in
   
-  def calendar
-    @user = User.find(Current.user.id)
-  end
-
-  def profile
-    @user = User.find(Current.user.id)
-  end
-
   def change_user_details
     # Check if there is a user - can't hurt!
     require_user_signed_in
@@ -30,6 +22,10 @@ class UserController < ApplicationController
     session[:user_id] = nil
     flash[:notice] = "Succesfully logged out!"
     redirect_to root_path
+  end
+
+  def find_user
+    @user = User.find(Current.user.id)
   end
 end
 

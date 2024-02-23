@@ -1,7 +1,7 @@
 <%= form_with url: sign_in_path do |form| %>
     <%= form.label :email, "Email: " %>
-    <% if params[:signup_email] %>
-        <%= form.text_field :email, value: params[:signup_email], class: "form-control mb-3" %>
+    <% if @sign_up_email %>
+        <%= form.text_field :email, value: @sign_up_email, class: "form-control mb-3" %>
     <% else %>
         <%= form.text_field :email, class: "form-control mb-3" %>
     <% end %>

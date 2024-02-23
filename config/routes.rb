@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 
+  # USER NOT PRESENT
   # Defines the root path route ("/")
   root 'login#new'
 
@@ -16,12 +17,13 @@ Rails.application.routes.draw do
   patch 'reset_password', to: "login#update_password"
   get 'reset_password', to: "login#reset_password"
 
+  # USER PRESENT
   # Routes for user actions
   post 'change_user_details', to: 'user#change_user_details'
   delete 'logout', to: "user#logout"
 
   # Routes for user navigations
-  get 'user/profile'
-  get 'user/calendar'
+  get 'user/profile', to: "profile#index"
+  get 'user/calendar', to: "calendar#index"
 
 end

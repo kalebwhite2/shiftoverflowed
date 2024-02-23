@@ -1,0 +1,17 @@
+=> 
+[[32m#<User:0x000002354473e4e0[0m
+  id: [34m[1m1[0m,
+  first_name: [31m[1m"[0m[31mkaleb[0m[31m[1m"[0m,
+  last_name: [31m[1m"[0m[31mwhite[0m[31m[1m"[0m,
+  email: [31m[1m"[0m[31mkaleboppwhite@gmail.com[0m[31m[1m"[0m,
+  password_digest: [31m[1m"[0m[31m[FILTERED][0m[31m[1m"[0m,
+  created_at: Tue, 20 Feb 2024 03:15:44.387437000 UTC +00:00,
+  updated_at: Tue, 20 Feb 2024 03:15:44.387437000 UTC +00:00[32m>[0m,
+ [32m#<User:0x000002354473e3a0[0m
+  id: [34m[1m2[0m,
+  first_name: [31m[1m"[0m[31ma[0m[31m[1m"[0m,
+  last_name: [31m[1m"[0m[31ma[0m[31m[1m"[0m,
+  email: [31m[1m"[0m[31mg@g.j[0m[31m[1m"[0m,
+  password_digest: [31m[1m"[0m[31m[FILTERED][0m[31m[1m"[0m,
+  created_at: Tue, 20 Feb 2024 21:09:50.181032000 UTC +00:00,
+  updated_at: Tue, 20 Feb 2024 21:09:50.181032000 UTC +00:00[32m>[0m]
