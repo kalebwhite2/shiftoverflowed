@@ -1,6 +1,7 @@
 class LoginController < ApplicationController
+  before_action :check_user_signed_in
+
   def new
-    check_user_signed_in
     create_local_user
   end
 
@@ -31,7 +32,11 @@ class LoginController < ApplicationController
     if user.present? && user.authenticate(params[:password])
       session[:user_id] = user.id
       flash[:notice] = "Logged in succesfully!"
-      redirect_to user_calendar_path
+      if user.type === SiteAdmin
+        redirect_to admin_root_path
+      else 
+        redirect_to user_calendar_path
+      end
     else
       # We keep the value of the inputted email by saving it as an instance variable
       flash[:alert] = "Incorrect email or password"

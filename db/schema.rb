@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_16_171357) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_26_185630) do
   create_table "calendars", force: :cascade do |t|
     t.date "start_date"
     t.integer "team_id"
@@ -56,6 +56,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_16_171357) do
     t.string "password_digest", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "type"
   end
 
   create_table "weekly_availabilities", force: :cascade do |t|

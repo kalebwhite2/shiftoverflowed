@@ -1,0 +1,17 @@
+<%= form_with model: @team, url: admin_create_team_path, class: "m-3" do |form| %>
+  <%= render 'utilities/errors/new_team' %>
+
+  <%= form.label :team_name, "Team Name: " %>
+  <%= form.text_field :team_name, class: "form-control mb-3" %>
+
+  <%= form.label :invite_code, "Invite Code: " %>
+  <%= form.text_field :invite_code, class: "form-control mb-3" %>
+
+  <%= form.label :admin_invite_code, "Admin Invite Code: " %>
+  <%= form.text_field :admin_invite_code, class: "form-control mb-3" %>
+
+  <%= form.label :shift_types, "Shift Types (delimit with commas): " %>
+  <%= form.password_field :shift_types, class: "form-control mb-3" %>
+
+  <%= form.submit "Create Team", class:"btn btn-primary" %>
+<% end %>

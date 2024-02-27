@@ -26,4 +26,10 @@ Rails.application.routes.draw do
   get 'user/profile', to: "profile#profile"
   get 'user/calendar', to: "calendar#calendar"
 
+  # Admin routes
+  namespace :admin do
+    root 'teams#teams'
+    get '/teams', to:"teams#teams"
+    get '/create_team', to:"teams#create_team"
+  end
 end
