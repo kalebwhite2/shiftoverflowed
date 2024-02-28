@@ -1,24 +1,24 @@
 <%= form_with model: @user, url: sign_up_path do |form| %>
-    <%= render 'utilities/errors/new_user' %>
+  <%= render 'utilities/errors/new_user' %>
 
-    <%= form.label :first_name, "First Name: " %>
-    <%= form.text_field :first_name, class: "form-control mb-3" %>
+  <%= form.label :first_name, "First Name: " %>
+  <%= form.text_field :first_name, class: "form-control mb-3" %>
 
-    <%= form.label :last_name, "Last Name: " %>
-    <%= form.text_field :last_name, class: "form-control mb-3" %>
+  <%= form.label :last_name, "Last Name: " %>
+  <%= form.text_field :last_name, class: "form-control mb-3" %>
 
-    <%= form.label :email, "Email: " %>
-    <%= form.text_field :email, class: "form-control mb-3" %>
+  <%= form.label :email, "Email: " %>
+  <%= form.text_field :email, class: "form-control mb-3" %>
 
-    <%= form.label :password, "Password: " %>
-    <%= form.password_field :password, class: "form-control mb-3" %>
+  <%= form.label :password, "Password: " %>
+  <%= form.password_field :password, class: "form-control mb-3" %>
 
-    <%= form.label :password_confirmation, "Repeat Password: " %>
-    <%= form.password_field :password_confirmation, class: "form-control mb-3" %>
+  <%= form.label :password_confirmation, "Repeat Password: " %>
+  <%= form.password_field :password_confirmation, class: "form-control mb-3" %>
 
-    <%= form.label :invite_code, "Invite Code: " %>
-    <%= form.text_field :invite_code, class: "form-control mb-3" %>
+  <%= form.label :invite_code, "Invite Code: " %>
+  <%= form.text_field :invite_code, class: "form-control mb-3" %>
 
-    <%= form.submit "Sign Up", class:"btn btn-primary" %>
+  <%= form.submit "Sign Up", class:"btn btn-primary" %>
 <% end %>
                     

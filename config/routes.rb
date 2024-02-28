@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'teams#teams'
     get '/teams', to:"teams#teams"
-    get '/create_team', to:"teams#create_team"
+    get '/create_team', to:"teams#team_form"
+    post '/create_team', to:"teams#create_team"
   end
 end

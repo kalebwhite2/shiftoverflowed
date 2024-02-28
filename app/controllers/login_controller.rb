@@ -70,7 +70,6 @@ class LoginController < ApplicationController
   private
 
   def user_params
-    # Grab the invite_code from the array
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end
 
