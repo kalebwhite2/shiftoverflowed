@@ -1,6 +1,6 @@
 class Admin::TeamsController < Admin::BaseController
   def teams 
-    @teams = Teams.all
+    @teams = Team.all
   end
 
   def team_form
