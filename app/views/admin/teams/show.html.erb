@@ -3,29 +3,65 @@
   <h5 class="card-header"><%= @team.team_name =%></h5>
 
   <%# Name, invite codes, shift types %>
-  <div class="row align-items-center">
+  <div class="row align-items-start">
     <div class="col">
-      <div class="card">
-        <h4 class="card-title">Name</h4>
+      <div class="card m-3 p-1">
+        <h5 class="card-title m-1">Name</h5>
         <%= form_with url: admin_update_team_path do |form| %>
-          <%= form.text_field :team_name, value: @team.team_name, class: "form-control" %>
-          <%= form.submit "Update", class:"btn btn-primary" %>
+          <div class="form-group m-1">
+            <div class="form-floating">
+              <%= form.text_field :team_name, value: @team.team_name, class: "form-control mb-2", id: "team-name" %>
+              <label for="team-name" class="fs-6 lh-1">Team Name</label>
+            </div>
+            <%= form.submit "Update", class:"btn btn-sm btn-primary" %>
+          </div>
         <% end %>
       </div>
     </div>
 
     <div class="col">
-      <div class="card">
-        <h4 class="card-title">Invite Codes</h4>
+      <div class="card m-3 p-1">
+        <h5 class="card-title m-1">Invite Codes</h5>
+        <%= form_with url: admin_update_team_path do |form| %>
+          <div class="form-group m-1">
+            <div class="form-floating">
+              <%= form.text_field :invite_code, value: @team.invite_code, class: "form-control mb-2", id: "invite-code" %>
+              <label for="invite-code" class="fs-6 lh-1">Invite Code</label>
+            </div>
+            <div class="form-floating">
+              <%= form.text_field :admin_invite_code, value: @team.admin_invite_code, class: "form-control mb-2", id: "admin-invite-code" %>
+              <label for="team-name" class="fs-6 lh-1">Admin Invite Code</label>
+            </div>
+            <%= form.submit "Update", class:"btn btn-sm btn-primary" %>
+          </div>
+        <% end %>
       </div>
     </div>
 
     <div class="col">
-      <div class="card">
-        <h4 class="card-title">Shift Types</h4>
+      <div class="card m-3 p-1">
+        <h5 class="card-title m-1">Shift Types</h5>
+        <%= form_with url: admin_update_team_path do |form| %>
+          <div class="form-group m-1">
+            <div class="form-floating">
+              <%= form.text_field :shift_types, class: "form-control mb-2", id: "shift-types" %>
+              <label for="shift-types" class="fs-6 lh-1">Add Type</label>
+            </div>
+            <div class="form-floating">
+              <select class="form-select mb-2" aria-label="Remove shift types" name="remove_shift_type" id="remove_shift_type">
+                <option selected>None</option>
+                <% for st in @team.shift_types %>
+                  <option><%= st %></option>
+                <% end %>
+              </select>
+              <label for="remove_shift_types" class="fs-6 lh-1">Remove Type</label>
+            </div>
+            <%= form.submit "Update", class:"btn btn-sm btn-primary" %>
+          </div>
+        <% end %>
       </div>
-    </div> 
-  </div> 
+    </div>
+  </div>
 
   <%# Calendar and weekly schedules %>
   <div class="row align-items-center">

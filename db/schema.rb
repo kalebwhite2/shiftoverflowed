@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_26_185630) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_01_224722) do
   create_table "calendars", force: :cascade do |t|
     t.date "start_date"
     t.integer "team_id"
@@ -30,6 +30,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_26_185630) do
     t.datetime "updated_at", null: false
     t.index ["weekly_availability_id"], name: "index_days_on_weekly_availability_id"
     t.index ["weekly_schedule_id"], name: "index_days_on_weekly_schedule_id"
+  end
+
+  create_table "shift_types", force: :cascade do |t|
+    t.string "name"
+    t.integer "team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["team_id"], name: "index_shift_types_on_team_id"
   end
 
   create_table "shifts", force: :cascade do |t|
@@ -78,6 +86,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_26_185630) do
   add_foreign_key "calendars", "teams"
   add_foreign_key "days", "weekly_availabilities"
   add_foreign_key "days", "weekly_schedules"
+  add_foreign_key "shift_types", "teams"
   add_foreign_key "shifts", "days"
   add_foreign_key "weekly_availabilities", "users"
   add_foreign_key "weekly_schedules", "calendars"

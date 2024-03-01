@@ -2,13 +2,14 @@
 #invite_code: string
 #admin_invite_code: string
 class Team < ApplicationRecord
-    has_many :ulas
     has_one :calendar, dependent: :destroy
     has_one :weekly_schedule
     has_many :administrators
+    has_many :ulas
+    has_many :shift_types, dependent: :destroy
 
     after_create :build_dependencies
-
+  
     private
     def build_dependencies
       # We want to have an assosciated calendar so we can access the corresponding shifts through days

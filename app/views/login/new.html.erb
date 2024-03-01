@@ -13,7 +13,7 @@
         <div class="tab-pane fade <%= 'show active' if @tab == 0%>" id="nav-sign-in" role="tabpanel" aria-labelledby="nav-sign-in-tab" tabindex="0">
             <%= render 'login/login_partials/sign_in', user: @user %>
         </div>
-        <%# The ruby tag <%= 'show active' if @tab == 1%> allows us to select which tab is shown based on the value of tab in the controller %>
+        <%# The ruby tag  'show active' if @tab == 1 allows us to select which tab is shown based on the value of tab in the controller %>
         <div class="tab-pane fade <%= 'show active' if @tab == 1%>" id="nav-sign-up" role="tabpanel" aria-labelledby="nav-sign-up-tab" tabindex="0">
             <%= render 'login/login_partials/sign_up', user: @user %>
         </div>
