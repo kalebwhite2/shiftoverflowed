@@ -28,9 +28,17 @@ Rails.application.routes.draw do
 
   # Admin routes
   namespace :admin do
+    # Get all teams as default
     root 'teams#teams'
     get '/teams', to:"teams#teams"
-    get '/create_team', to:"teams#team_form"
+
+    # Routes for editing teams
     post '/create_team', to:"teams#create_team"
+    post '/update_team', to:"teams#update_team"
+
+    # Routes surrounding showing teams
+    get '/teams/:id', to: 'teams#show', as: 'team'
+    get '/create_team', to:"teams#team_form"
+
   end
 end

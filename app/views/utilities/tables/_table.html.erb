@@ -1,0 +1,20 @@
+<%# Takes in an object, a list of column names, and a map of routes and their names %>
+<%# IMPT: object must have an id %>
+<div class="card m-3 p-3">
+  <table class="table table-hover">
+    <thead>
+      <th scope="col" class="text-primary">ID</th>
+      <% for c in columns %>
+        <th scope="col" class="text-primary"><%= c.titlecase =%></th>
+      <% end %>
+    </thead>
+    <% for obj in objects %>
+      <tr>
+        <th scope="row"><%= obj.id %></th>
+        <% for c in columns %>
+          <th scope="row"><%= obj.read_attribute(c) =%></th>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+</div>

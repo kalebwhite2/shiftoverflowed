@@ -1,0 +1,40 @@
+<div class="card m-3">
+
+  <h5 class="card-header"><%= @team.team_name =%></h5>
+
+  <%# Name, invite codes, shift types %>
+  <div class="row align-items-center">
+    <div class="col">
+      <div class="card">
+        <h4 class="card-title">Name</h4>
+        <%= form_with url: admin_update_team_path do |form| %>
+          <%= form.text_field :team_name, value: @team.team_name, class: "form-control" %>
+          <%= form.submit "Update", class:"btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card">
+        <h4 class="card-title">Invite Codes</h4>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card">
+        <h4 class="card-title">Shift Types</h4>
+      </div>
+    </div> 
+  </div> 
+
+  <%# Calendar and weekly schedules %>
+  <div class="row align-items-center">
+
+  calendar and weekly schedule
+  </div>
+
+  <%# Add / remove administrators and users %>
+  <div class="row align-items-center">
+  </div>
+  destroy
+</div>

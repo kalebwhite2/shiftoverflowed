@@ -1,4 +1,10 @@
 class Admin::TeamsController < Admin::BaseController
+  before_action :set_team, only: :show
+
+  def show 
+  
+  end
+
   def teams 
     @teams = Team.all
   end
@@ -19,7 +25,15 @@ class Admin::TeamsController < Admin::BaseController
     end
   end
 
+  def update_team
+  end
+
   private
+  # This is used a "callback", a function for commen setup or constraints between actions.
+  def set_team
+    @team = Team.find(params[:id])
+  end
+    
 
   # Validate any created teams 
   def team_params

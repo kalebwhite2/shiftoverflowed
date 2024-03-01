@@ -3,7 +3,7 @@
 #admin_invite_code: string
 class Team < ApplicationRecord
     has_many :ulas
-    has_one :calendar
+    has_one :calendar, dependent: :destroy
     has_one :weekly_schedule
     has_many :administrators
 
