@@ -4,7 +4,7 @@
       <%= @team.team_name %> 
     </div>
     <%# Delete team %>
-    <%= form_with model: @team, url: admin_delete_team_path do |form| %>
+    <%= form_with url: admin_delete_team_path do |form| %>
       <%= form.button "Delete Team", formmethod: :delete, class:"btn btn-danger" %>
     <% end %>
   </h5>
@@ -15,7 +15,7 @@
     <div class="col"> <%# Each 'attribute' gets a card and a column %>
       <div class="card m-3 p-1">
         <h5 class="card-title m-1">Name</h5>
-        <%= form_with url: admin_update_team_path do |form| %> <%# Allow rails to construct the form for us %>
+        <%= form_with url: admin_update_team_path(@team) do |form| %> <%# Allow rails to construct the form for us %>
           <div class="form-group m-1">
             <div class="form-floating"> 
               <%= form.text_field :team_name, value: @team.team_name, class: "form-control mb-2", id: "team-name" %>
@@ -31,7 +31,7 @@
     <div class="col">
       <div class="card m-3 p-1">
         <h5 class="card-title m-1">Invite Codes</h5>
-        <%= form_with url: admin_update_team_path do |form| %>
+        <%= form_with url: admin_update_team_path(@team) do |form| %>
           <div class="form-group m-1">
             <div class="form-floating">
               <%= form.text_field :invite_code, value: @team.invite_code, class: "form-control mb-2", id: "invite-code" %>
@@ -51,7 +51,7 @@
     <div class="col">
       <div class="card m-3 p-1">
         <h5 class="card-title m-1">Shift Types</h5>
-        <%= form_with url: admin_update_team_path do |form| %>
+        <%= form_with url: admin_update_team_path(@team) do |form| %>
           <div class="form-group m-1">
             <div class="form-floating">
               <%= form.text_field :shift_types, class: "form-control mb-2", id: "shift-types" %>

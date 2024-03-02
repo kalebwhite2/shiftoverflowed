@@ -1,5 +1,5 @@
 class Admin::TeamsController < Admin::BaseController
-  before_action :set_team, only: [:show, :destroy_team]
+  before_action :set_team, only: [:show, :destroy_team, :update_team]
   def show 
   
   end
@@ -25,6 +25,19 @@ class Admin::TeamsController < Admin::BaseController
   end
 
   def update_team
+    # Here, each will be assigned to each parameter in a way that resembles in an array of arrays
+    # ie, for team_name, p will look like ["team_name", "new_team_name"]
+    params.each do |p|
+      if Team.column_names.include? p[0]
+        @team.update_attribute(p[0], p[1])
+      end
+    end
+    if @team.save
+      flash[:notice] = "Succesfully updated team!"
+    else
+      flash[:alert] = "Failed to update team."
+    end
+    render :show
   end
 
   def destroy_team
@@ -32,7 +45,7 @@ class Admin::TeamsController < Admin::BaseController
       flash[:notice] = "Team deleted succesfully!"
       redirect_to admin_teams_path
     else
-      flash[:alert] = "Failed to delete team"
+      flash[:alert] = "Failed to delete team."
       redirect_to team_url(@team)
     end
   end
