@@ -35,8 +35,9 @@ Rails.application.routes.draw do
     # Routes for editing teams
     post '/create_team', to:"teams#create_team"
     post '/update_team', to:"teams#update_team"
+    delete '/delete_team/:id', to:"teams#destroy_team", as: "delete_team"
 
-    # Routes surrounding showing teams
+    # Routes surrounding showing (reading) teams
     get '/teams/:id', to: 'teams#show', as: 'team'
     get '/create_team', to:"teams#team_form"
 

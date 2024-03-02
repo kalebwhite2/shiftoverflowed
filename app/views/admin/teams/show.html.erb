@@ -1,17 +1,25 @@
 <div class="card m-3">
-
-  <h5 class="card-header"><%= @team.team_name =%></h5>
+  <h5 class="card-header d-flex align-items-center">
+    <div class="me-auto">
+      <%= @team.team_name %> 
+    </div>
+    <%# Delete team %>
+    <%= form_with model: @team, url: admin_delete_team_path do |form| %>
+      <%= form.button "Delete Team", formmethod: :delete, class:"btn btn-danger" %>
+    <% end %>
+  </h5>
 
   <%# Name, invite codes, shift types %>
   <div class="row align-items-start">
-    <div class="col">
+    <%# Name %> 
+    <div class="col"> <%# Each 'attribute' gets a card and a column %>
       <div class="card m-3 p-1">
         <h5 class="card-title m-1">Name</h5>
-        <%= form_with url: admin_update_team_path do |form| %>
+        <%= form_with url: admin_update_team_path do |form| %> <%# Allow rails to construct the form for us %>
           <div class="form-group m-1">
-            <div class="form-floating">
+            <div class="form-floating"> 
               <%= form.text_field :team_name, value: @team.team_name, class: "form-control mb-2", id: "team-name" %>
-              <label for="team-name" class="fs-6 lh-1">Team Name</label>
+              <label for="team-name" class="fs-6 lh-1">Team Name</label> <%# Add non-intrusive field descriptors using bootstrap%>
             </div>
             <%= form.submit "Update", class:"btn btn-sm btn-primary" %>
           </div>
@@ -19,6 +27,7 @@
       </div>
     </div>
 
+    <%# Invite Codes %>
     <div class="col">
       <div class="card m-3 p-1">
         <h5 class="card-title m-1">Invite Codes</h5>
@@ -38,6 +47,7 @@
       </div>
     </div>
 
+    <%# Shift Types %>
     <div class="col">
       <div class="card m-3 p-1">
         <h5 class="card-title m-1">Shift Types</h5>
@@ -65,12 +75,18 @@
 
   <%# Calendar and weekly schedules %>
   <div class="row align-items-center">
+    
+    <div class="col">
+    </div>
 
-  calendar and weekly schedule
+    <div class="col">
+    </div>
+
   </div>
 
   <%# Add / remove administrators and users %>
   <div class="row align-items-center">
   </div>
-  destroy
+
+
 </div>

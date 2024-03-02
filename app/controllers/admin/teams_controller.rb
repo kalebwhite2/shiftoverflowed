@@ -1,6 +1,5 @@
 class Admin::TeamsController < Admin::BaseController
-  before_action :set_team, only: :show
-
+  before_action :set_team, only: [:show, :destroy_team]
   def show 
   
   end
@@ -26,6 +25,16 @@ class Admin::TeamsController < Admin::BaseController
   end
 
   def update_team
+  end
+
+  def destroy_team
+    if @team.destroy
+      flash[:notice] = "Team deleted succesfully!"
+      redirect_to admin_teams_path
+    else
+      flash[:alert] = "Failed to delete team"
+      redirect_to team_url(@team)
+    end
   end
 
   private
