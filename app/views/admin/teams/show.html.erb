@@ -55,13 +55,13 @@
           <div class="form-group m-1">
             <div class="form-floating">
               <%= form.text_field :shift_types, class: "form-control mb-2", id: "shift-types" %>
-              <label for="shift-types" class="fs-6 lh-1">Add Type</label>
+              <label for="shift-types" class="fs-6 lh-1">Add Type (Delimit with ", ")</label>
             </div>
             <div class="form-floating">
               <select class="form-select mb-2" aria-label="Remove shift types" name="remove_shift_type" id="remove_shift_type">
                 <option selected>None</option>
                 <% for st in @team.shift_types %>
-                  <option><%= st %></option>
+                  <option><%= st.name %></option>
                 <% end %>
               </select>
               <label for="remove_shift_types" class="fs-6 lh-1">Remove Type</label>
