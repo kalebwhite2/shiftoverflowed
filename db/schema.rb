@@ -62,9 +62,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_01_224722) do
     t.string "last_name", null: false
     t.string "email", null: false
     t.string "password_digest", null: false
+    t.integer "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "type"
+    t.index ["team_id"], name: "index_users_on_team_id"
   end
 
   create_table "weekly_availabilities", force: :cascade do |t|
@@ -88,6 +90,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_01_224722) do
   add_foreign_key "days", "weekly_schedules"
   add_foreign_key "shift_types", "teams"
   add_foreign_key "shifts", "days"
+  add_foreign_key "users", "teams"
   add_foreign_key "weekly_availabilities", "users"
   add_foreign_key "weekly_schedules", "calendars"
 end

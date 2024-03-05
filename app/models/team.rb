@@ -5,7 +5,7 @@ class Team < ApplicationRecord
     has_one :calendar, dependent: :destroy
     has_one :weekly_schedule
     has_many :administrators
-    has_many :ulas
+    has_many :users
     has_many :shift_types, dependent: :destroy
 
     after_create :build_dependencies

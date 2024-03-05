@@ -21,4 +21,13 @@ class User < ApplicationRecord
     # Active record validations contains this simple validator to check uniqueness
     validates :email, uniqueness: true
     validates :first_name, :last_name, :email, presence: true
+  
+    # Given a query, finds all users with a name LIKE the query string
+    def self.search(query)
+      if query.present?
+        where('(email) LIKE ?', "%#{query}%")
+      else
+        all
+      end
+    end
 end

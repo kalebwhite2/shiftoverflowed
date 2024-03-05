@@ -85,8 +85,42 @@
   </div>
 
   <%# Add / remove administrators and users %>
-  <div class="row align-items-center">
-  </div>
+  <div class="row align-items-top">
+    <%# Add users to team %>
+    <div class="col">
+      <div class="card m-3 p-1">
+        <h5 class="card-title m-1">Add Users to Team</h5>
+        <%= form_with url: admin_team_url(@team), method: :get do |f| %>
+          <%= text_field_tag :add_user, params[:add_user], placeholder: "Search users..." %>
+          <%= submit_tag "Search" %>
+        <% end %>
+        <%= form_with url: admin_update_team_path(@team), method: :post do |f| %>
 
+          <% @users.each do |user| %>
+            <%= check_box_tag "add_user_ids[]", user.id %>
+            <%= user.email %><br>
+          <% end %>
+
+          <%= submit_tag "Add selected users to team" %>
+        <% end %>
+      </div>
+    </div>
+
+    <%# Add users to team %>
+    <div class="col">
+      <div class="card m-3 p-1">
+        <h5 class="card-title m-1">Remove Users From Team</h5>
+        <%= form_with url: admin_update_team_path(@team), method: :post do |f| %>
+
+          <% @users_in_team.each do |user| %>
+            <%= check_box_tag "remove_user_ids[]", user.id %>
+            <%= user.email %><br>
+          <% end %>
+
+          <%= submit_tag "Remove selected users from team" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
 </div>
