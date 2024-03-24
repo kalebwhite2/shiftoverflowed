@@ -17,10 +17,13 @@
 
 ## Conventions
 1. Please use snake_case.
-2. Please comment with the format '# My comment'
-  1. Start with '# '
-  2. Include your commnent, capitalized, with no period, unless there's multiple sentences.
-3. Please use two spaces as your tab size. On VSCode, you can change this by hitting the gear symbol > Settings > Workspace > Workspace: Tab Size. 
-  1. Also, turn Detect Indentation off. 
-3. Leave as many comments on your code as possible!
-4. Please follow or update the [dbdiagram](https://dbdiagram.io/d/shiftoverflowed-65c58cdcac844320aec7146c).
+1. Please comment with the format '# My comment'
+  - Start with '# '
+  - Include your commnent, capitalized, with no period, unless there's multiple sentences.
+1. Leave as many comments on your code as possible!
+1. Please use two spaces as your tab size. On VSCode, you can change this by hitting the gear symbol > Settings > Workspace > Workspace: Tab Size. 
+  - Also, turn Detect Indentation off. 
+1. Please commit often, especially after working on a small, discrete piece of code.
+  - Write commit messages as though they began with "In this commit, I will" 'your commit message'. Write your commit message, just don't include the "In this commit, I will" part.
+  - Capitalize the first letter of your commit message, and don't end the sentence with a period.
+1. Please follow or update the [dbdiagram](https://dbdiagram.io/d/shiftoverflowed-65c58cdcac844320aec7146c).

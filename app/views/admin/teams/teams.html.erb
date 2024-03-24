@@ -1,17 +1,18 @@
 <%# Makes use of the table and card table partials to offer two different ways to see all the teams %>
 <nav class="m-3">
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
-    <button class="nav-link active" id="nav-card-tab" data-bs-toggle="tab" data-bs-target="#nav-card" type="button" role="tab" aria-controls="nav-card" aria-selected="true">Card</button>
-    <button class="nav-link" id="nav-table-tab" data-bs-toggle="tab" data-bs-target="#nav-table" type="button" role="tab" aria-controls="nav-table" aria-selected="false">Table</button>
+    <button class="nav-link active" id="nav-table-tab" data-bs-toggle="tab" data-bs-target="#nav-table" type="button" role="tab" aria-controls="nav-table" aria-selected="false">Table</button>
+    <button class="nav-link" id="nav-card-tab" data-bs-toggle="tab" data-bs-target="#nav-card" type="button" role="tab" aria-controls="nav-card" aria-selected="true">Card</button>
   </div>
 </nav>
 <div class="tab-content" id="nav-tabContent">
-  <div class="tab-pane fade show active" id="nav-card" role="tabpanel" aria-labelledby="nav-card-tab" tabindex="0">
-  </div>
-  <div class="tab-pane fade" id="nav-table" role="tabpanel" aria-labelledby="nav-table-tab" tabindex="0">
+ <div class="tab-pane fade show active" id="nav-table" role="tabpanel" aria-labelledby="nav-table-tab" tabindex="0">
     <%= render partial: "utilities/tables/table",
      locals: {
      columns: ["team_name"],
+     attr_ls: ["users"],
      objects: @teams}=%> 
+  </div>
+  <div class="tab-pane fade" id="nav-card" role="tabpanel" aria-labelledby="nav-card-tab" tabindex="0">
   </div>
 </div>

@@ -1,5 +1,8 @@
-<%# Takes in an object, a list of column names, and a map of routes and their names %>
-<%# IMPT: object must have an id %>
+<%# Local Variables
+  - objects array
+  - columns array
+  - attr_ls array %>
+
 <div class="card m-3 p-3">
   <table class="table table-hover">
     <thead>
@@ -7,13 +10,25 @@
       <% for c in columns %>
         <th scope="col" class="text-primary"><%= c.titlecase =%></th>
       <% end %>
+      <% for c in attr_ls %>
+        <th scope="col" class="text-primary"><%= c.titlecase =%></th>
+      <% end %>
+      <th scope="col" class="text-primary"> View </th>
     </thead>
     <% for obj in objects %>
-      <tr>
+      <tr class="align-middle">
         <th scope="row"><%= obj.id %></th>
         <% for c in columns %>
-          <th scope="row"><%= obj.read_attribute(c) =%></th>
+          <th scope="row"><%= obj.send(c) =%></th>
         <% end %>
+        <% for l in attr_ls %>
+          <th scope="row">
+              <%= obj.send(l).size =%>
+          </th>
+        <% end %>
+        <th scope="row">
+          <%= link_to "View Team", admin_team_path(obj.id), class: "btn btn-primary" %>
+        </th>
       </tr>
     <% end %>
   </table>
