@@ -4,7 +4,7 @@ class Admin::TeamsController < Admin::BaseController
     # For displaying users to remove
     @users_in_team = @team.users
     # For displaying users to add
-    @users = User.search(params[:query]).reject{|u| @users_in_team.include? u}
+    @users = User.search(params[:add_user]).reject{|u| @users_in_team.include? u}
   end
 
   def teams 
@@ -52,6 +52,9 @@ class Admin::TeamsController < Admin::BaseController
         end
       when "add_admin"
       when "remove_user"
+        p[1].each do |id|
+          @team.users.delete(User.find(id))
+        end
       when "remove_admin"
       else
         # Exclude default value id

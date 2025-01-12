@@ -1,4 +1,38 @@
-<div class="container-xxl">
-  <%= calendar do |week| %>
-  <% end %>
+<%# Card container for calendar %>
+<div class="card m-3 p-3 height-100">
+  <div class="row">
+    <%# Key column %>
+    <div class="col-sm">
+        <div class="row border-bottom mb-3">
+          Day 
+        </div>
+
+        <div class="card">
+        <% (8..19).each do |hour| %>
+          <div class="row">
+            <%= display_hour = hour - 12 > 0 ? "#{hour - 12} pm" : "#{hour} am"%>
+          </div>
+        <% end %>
+        </div>
+    </div>
+
+    <%# Generate rows for each day of the week %>
+    <% Date.today.all_week.each do |date| %>
+      
+      <div class="col"> 
+        <div class="row border-bottom w-100 mb-3">
+          <%= date.strftime("%A") %>
+        </div>
+
+        <div class="card">
+        <% (8..19).each do |hour| %>
+          <div class="row">
+            <%= hour %>
+          </div>
+        <% end %>
+        </div>
+      </div>
+
+    <% end %>
+  </div>
 </div>

@@ -90,19 +90,24 @@
     <div class="col">
       <div class="card m-3 p-1">
         <h5 class="card-title m-1">Add Users to Team</h5>
-        <%= form_with url: admin_team_url(@team), method: :get do |f| %>
-          <%= text_field_tag :add_user, params[:add_user], placeholder: "Search users..." %>
-          <%= submit_tag "Search" %>
-        <% end %>
-        <%= form_with url: admin_update_team_path(@team), method: :post do |f| %>
-
-          <% @users.each do |user| %>
-            <%= check_box_tag "add_user_ids[]", user.id %>
-            <%= user.email %><br>
+        <div class="form-group m-1">
+          <%# Search %>
+          <%= form_with url: admin_team_url(@team), method: :get do |f| %>
+            <%= text_field_tag :add_user, params[:add_user], placeholder: "Search users...", class: "form-control mb-2" %>
+            <%= submit_tag "Search", class:"btn btn-sm btn-primary" %>
           <% end %>
-
-          <%= submit_tag "Add selected users to team" %>
-        <% end %>
+          <hr class="mt-2 mb-1">
+          <%# Add %>
+          <%= form_with url: admin_update_team_path(@team), method: :post do |f| %>
+              <div class="form-check">
+                <% @users.each do |user| %>
+                  <%= check_box_tag "add_user_ids[]", user.id, class: "form-check-input" %>
+                  <div class="form-check-label"><%= user.email %></div>
+                <% end %>
+              </div>
+            <%= submit_tag "Add selected users to team", class: "btn btn-sm btn-primary" %>
+          <% end %>
+        </div>
       </div>
     </div>
 
